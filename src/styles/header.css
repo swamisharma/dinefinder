@@ -1,0 +1,44 @@
+header {
+    display: flex;
+    height: 10vh;
+    align-items: center;
+    width: 100%;
+    background-color: #1d2226;
+    border-bottom: 1px solid #39434a;
+}
+
+.header-container {
+    height: 8vh;
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.page-title-logo {
+    height: 100%;
+}
+
+.page-title-logo img {
+    height: 100%;
+}
+
+.profile {
+    display: flex;
+    justify-content: space-between;
+    height: 8vh;
+    width: 8%;
+    align-items: center;
+}
+
+.person-name h3 {
+    color: white;
+}
+
+.person-logo {
+    height: 70%;
+}
+
+.person-logo img {
+    height: 100%;
+}
