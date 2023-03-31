@@ -7,38 +7,43 @@ header {
     border-bottom: 1px solid #39434a;
 }
 
-.header-container {
+.my-header-container {
     height: 8vh;
     width: 95%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-}
-
-.page-title-logo {
-    height: 100%;
-}
-
-.page-title-logo img {
-    height: 100%;
-}
-
-.profile {
-    display: flex;
-    justify-content: space-between;
-    height: 8vh;
-    width: 8%;
     align-items: center;
 }
 
-.person-name h3 {
+.my-page-title-logo {
+    height: 100%;
+}
+
+.my-page-title-logo img {
+    height: 100%;
+}
+
+.my-profile {
+    display: flex;
+    justify-content: space-between;
+    height: 8vh;
+    width: 13%;
+    align-items: center;
+}
+
+.my-person-name a {
     color: white;
 }
 
-.person-logo {
+.my-person-name h3 {
+    color: white;
+}
+
+.my-person-logo {
     height: 70%;
 }
 
-.person-logo img {
+.my-person-logo img {
     height: 100%;
 }
