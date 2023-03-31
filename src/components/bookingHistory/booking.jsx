@@ -46,9 +46,13 @@ function BookingHistory() {
   }
 
   const [arr] = useState(JSON.parse(localStorage.getItem("booking")))
-  while (arr.length > 3) {
-    arr.splice(0, 1);
+
+  if (arr) {
+    while (arr.length > 3) {
+      arr.splice(0, 1);
+    }
   }
+
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {

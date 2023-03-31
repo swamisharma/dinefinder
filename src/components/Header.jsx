@@ -23,14 +23,14 @@ export default function Header(props){
         <header>
             <div className="my-header-container">
                 <div className="my-page-title-logo">
-                    <img src="../src/assets/page-title-logo.png" onClick={navToHome}/>
+                    <img src="https://i.ibb.co/WcW77DW/page-title-logo.png" onClick={navToHome}/>
                 </div>
                 <div className="my-profile">
                     <div className="my-person-name">
                         <h3>{username}</h3>
                     </div>
                     <div className="my-person-logo">
-                        <img src="../src/assets/person-icon.png" alt="Person Logo" onClick={navToProfile}/>
+                        <img src="https://i.ibb.co/vsg8QYg/person-icon.png" alt="Person Logo" onClick={navToProfile}/>
                     </div>
                 </div>
             </div>
