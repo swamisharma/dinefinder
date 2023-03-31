@@ -1,21 +1,68 @@
 import './App.css'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { auth } from "./firebase";
 import { useState, useEffect } from 'react';
 import Home from './components/Home';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import Restaurant from './components/Restaurant';
+import Profile from './components/profile/profile'
+import UpdatePassword from './components/changePassword/password.jsx'
+import BookingHistory from './components/bookingHistory/booking.jsx'
+import PermanentDrawerLeft from './components/sidebar/sidebar.jsx'
+import Feedback from './components/feedback/feedback.component';
+
 
 export default function App() {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
 
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home name={userName} email={email}/>
+    },
+    {
+      path: '/profile',
+      element: <PermanentDrawerLeft name={userName}/>,
+      children: [
+        {
+          path: '/profile',
+          element: <Profile />,
+        },
+        {
+          path: '/profile/password',
+          element: <UpdatePassword />
+        },
+        {
+          path: '/profile/booking',
+          element: <BookingHistory />
+        }
+  
+      ],
+    },
+    {
+      path: "/login",
+      element: <Login />
+    },
+    {
+      path: "/signup",
+      element: <Signup />
+    },
+    {
+      path: "/:city/:id",
+      element: <Restaurant name={userName} email={email}/>
+    },
+    {
+      path: "/feedback",
+      element: <Feedback />
+    }
+  ]);
+
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        console.log(user);
         setUserName(user.displayName);
         setEmail(user.email);
       } else{ 
@@ -27,14 +74,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home name={userName} email={email}/>} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/:city/:id" element={<Restaurant name={userName} email={email}/>} />
-        </Routes>
-      </Router>
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }

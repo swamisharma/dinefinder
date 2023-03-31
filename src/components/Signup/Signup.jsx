@@ -4,6 +4,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import InputControl from "../InputControl/InputControl";
 import { auth } from "../../firebase";
 import styles from "./Signup.module.css";
+import Signupheader from "../Signupheader";
 
 function Signup() {
   const navigate = useNavigate();
@@ -40,9 +41,7 @@ function Signup() {
 
   return (
     <>
-      <div className="signup-header">
-        <img src="../../../src/assets/page-title-logo.png" alt=""/>
-      </div>
+      <Signupheader />
       <div className={styles.container}>
         <div className={styles.innerBox}>
           <h1 className={styles.heading}>Signup</h1>

@@ -6,6 +6,7 @@ import InputControl from "../InputControl/InputControl";
 import { auth } from "../../firebase";
 
 import styles from "./Login.module.css";
+import Signupheader from "../Signupheader";
 
 function Login() {
   const navigate = useNavigate();
@@ -39,9 +40,7 @@ function Login() {
 
   return (
     <>
-      <div className="login-header">
-        <img src="../../../src/assets/page-title-logo.png" alt=""/>
-      </div>
+      <Signupheader />
       <div className={styles.container}>
         <div className={styles.innerBox}>
           <h1 className={styles.heading}>Login</h1>

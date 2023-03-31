@@ -2,17 +2,30 @@ import "../styles/Restaurant.css"
 import data from "../data";
 import Header from "./Header";
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 
 export default function Restaurant(props) {
+    const [date, setDate] = useState("");
     const {city, id} = useParams();
-    console.log(data[city].resto_details[0].name);
+
+    function handleDateChange(e) {
+        setDate(e.target.value);
+    }
+
+    const array = [];
+
+    function handleConfirmBooking() {
+        array.push({date:`${date}`, city:`${city}`, id:`${id}`});
+        localStorage.setItem("booking", JSON.stringify(array));
+        alert(`Hello ${props.name} Booking Confirmed!!`);
+    }
 
     return (
         <>
             <Header login={props} />
             <div className="container">
                 <div className="carousel">
-                    <img src="../src/assets/siyuan.jpg" alt="image" />
+                    <img src={data[city].resto_details[id].url} alt="image" />
                 </div>
                 <div className="description-details-booking">
                     <div className="description">
@@ -32,9 +45,9 @@ export default function Restaurant(props) {
                     </div>
                     <div className="booking">
                         <h3>Booking</h3>
-                        <input type="date" value="2023-01-01" required />
-                        <input type="time" value="00:00" required />
-                        <button>Confirm Booking</button>
+                        <input type="date" required onChange={handleDateChange}/>
+                        <input type="time" required />
+                        <button onClick={handleConfirmBooking}>Confirm Booking</button>
                     </div>
                 </div>
             </div>

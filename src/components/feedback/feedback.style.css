@@ -1,0 +1,66 @@
+.form{
+    background-color: #252525;
+    color: white;
+    max-width: 1128px;
+    height: 90%;
+    margin: 2.5% auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+form {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+}
+
+form div {
+    width: 80%;
+}
+
+div.inputs div {
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+.inputs{
+    box-sizing: border-box;
+    border: 2px solid rgb(141, 141, 141);
+    padding: 20px;
+}
+
+#outlined-basic{
+    color: wheat;
+    background-color: #505050;
+}
+
+#outlined-multiline-static{
+    color: wheat;
+    background-color: #505050;
+    padding: 16.5px 14px;
+}
+
+.MuiInputBase-root{
+    padding: 16.5px 14px;
+}
+
+button.manikbutton{
+    display: grid;
+    background-color: black;
+    color: white;
+    height: 40px;
+    width: 100px;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.css-1c99szj-MuiRating-icon {
+    color: wheat !important;
+}
+
+.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root label{
+    color: aliceblue !important;
+}

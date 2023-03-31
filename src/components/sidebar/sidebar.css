@@ -1,0 +1,20 @@
+.userImage{
+    height: 200px;
+    width: 200px;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.userPhoto{
+    text-align: center;
+    margin-top: 7px;
+}
+
+.MuiDrawer-paper {
+    height: 90%;
+    margin: 5% 0;
+}
+
+.css-11b3ww9-MuiPaper-root-MuiAppBar-root {
+    background-color: rgb(40, 40, 40) !important;
+}
