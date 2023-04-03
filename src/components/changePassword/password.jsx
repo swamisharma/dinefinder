@@ -10,16 +10,16 @@ function UpdatePassword(){
         <div id="passwordData">
           {/* <div className="profileHeading"> */}
            <h1 className="profileHeading"> <MdOutlinePassword />
-           <span className="headingName">Change Password</span> </h1>
+           <span className="passwordheadingName">Change Password</span> </h1>
         <form className="passwordForm" onSubmit={(e)=>{
            Solve(e);
         }}>
-            <h2 className="passwordHeading">Current Password</h2>
-            <input className="userName passwordInput" name="currentPassword" type="password" />
+            <h2 className="currentPassword">Current Password</h2>
+            <input className=" passwordInput" name="currentPassword" type="password" />
             <h2 className="passwordHeading">New Password</h2>
-            <input className="userNumber passwordInput" name="newPassword" type='password' placeholder=""/>
+            <input className=" passwordInput" name="newPassword" type='password' placeholder=""/>
             <h2 className="passwordHeading">Confirm  Password</h2>
-            <input className="userNumber passwordInput" type='password' name="confirmPassword" placeholder=""/>
+            <input className="passwordInput" type='password' name="confirmPassword" placeholder=""/>
             <button type="submit" className="passwordBtn">Submit</button>
         </form>
         </div>

@@ -20,17 +20,20 @@
     margin-left: 20px;
 }
 
-.userForm{
+#profileForm{
   display: flex;
   justify-content: space-around;
+  margin-left: 170px;
+  margin-top: 25px;
 }
 
-.userInput{
-    width: 500px;
+.userprofileInput1{
+    width: 450px;
     height: 45px;
     background-color: whitesmoke;
     font-size: 17px;
     border-radius: 10px;
+    margin-left: 70px;
 }
 
 .profileBtn{
@@ -40,12 +43,24 @@
     background-color: black;
     color: whitesmoke;
     font-size: 20px;
-    margin-left: 200px;
+    margin-left: 170px;
     border-radius: 50px;
+    display: block;
 }
 
-.userHeading{
+.userprofileHeading{
+  margin-top: 20px;
+  margin-left: 70px;
+  height: 40px;
+  font-weight: 400;
+}
+
+.userProfileForm{
+  height: 400px;
+  /* width:  800px; */
+  display: block;
+}
+
+.profileSpace{
   margin-top: 20px;
 }
-
-
