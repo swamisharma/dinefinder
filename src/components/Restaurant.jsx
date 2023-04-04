@@ -12,7 +12,10 @@ export default function Restaurant(props) {
         setDate(e.target.value);
     }
 
-    const array = [];
+    let array = [];
+    if (localStorage.getItem("booking")){
+        array = JSON.parse(localStorage.getItem("booking"));
+    }
 
     function handleConfirmBooking() {
         array.push({date:`${date}`, city:`${city}`, id:`${id}`});
