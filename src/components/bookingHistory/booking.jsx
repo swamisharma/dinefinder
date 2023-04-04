@@ -45,11 +45,11 @@ function BookingHistory() {
     navigate("/feedback");
   }
 
-  const [arr] = useState(JSON.parse(localStorage.getItem("booking")))
+  const [arr, setArr] = useState(JSON.parse(localStorage.getItem("booking")))
 
   if (arr) {
     while (arr.length > 3) {
-      arr.splice(0, 1);
+      setArr(arr.splice(0, 1));
     }
   }
 
