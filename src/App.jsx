@@ -28,7 +28,7 @@ export default function App() {
       children: [
         {
           path: '/profile',
-          element: <Profile />,
+          element: <Profile name={userName} email={email}/>,
         },
         {
           path: '/profile/password',

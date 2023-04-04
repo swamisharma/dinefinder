@@ -45,11 +45,11 @@ function BookingHistory() {
     navigate("/feedback");
   }
 
-  const [arr, setArr] = useState(JSON.parse(localStorage.getItem("booking")))
+  const arr = JSON.parse(localStorage.getItem("booking"));
 
   if (arr) {
     while (arr.length > 3) {
-      setArr(arr.splice(0, 1));
+      arr.splice(0, 1); // 2,3,4
     }
   }
 
@@ -66,14 +66,14 @@ function BookingHistory() {
         <span className="bookingName">Booking History</span> </h1>
 
       <div className="bookingData" >
-        {arr && arr.map((obj) => {
+        {arr && arr.map((obj, index) => {
           return (
-            <div>
+            <div key={index}>
               <Card sx={{ maxWidth: 345 }} className="bookingCard">
                 <CardHeader
                   avatar={
                     <Avatar sx={{ bgcolor: 'black' }} aria-label="recipe">
-                      U
+                      {`${data[obj.city].resto_details[obj.id].name}`.charAt(0)}
                     </Avatar>
                   }
                   action={

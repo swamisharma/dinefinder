@@ -1,12 +1,15 @@
-function isEmptyOrSpaces(str){
+import { auth } from "../../firebase";
+import { updatePassword } from "firebase/auth";
+
+function isEmptyOrSpaces(str) {
     return str === null || str.match(/^ *$/) !== null;
 }
-function validation(currentPassword,newPassword,confirmPassword){
+function validation(currentPassword, newPassword, confirmPassword) {
     let emailCheck = /^[a-zA-Z0-9]+@(gmail|yahoo|outlook)\.com$/;
     // let emailCheck = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
     let userCheck = /^[a-zA-Z0-9]{5,}$/;
 
-    if(isEmptyOrSpaces(currentPassword) || isEmptyOrSpaces(newPassword) || isEmptyOrSpaces(confirmPassword)){
+    if (isEmptyOrSpaces(currentPassword) || isEmptyOrSpaces(newPassword) || isEmptyOrSpaces(confirmPassword)) {
         alert("You cannot left any field empty");
         return false;
     }
@@ -20,49 +23,56 @@ function validation(currentPassword,newPassword,confirmPassword){
     //     alert("-username can only be alphanumeric \n -usernamemust be atleast 5 characters")
     //     return false;
     // }
-    if(newPassword !== confirmPassword){
+    if (newPassword !== confirmPassword) {
         alert("Please enter the correct Newpassword and Confirmpassword ");
         return false
     }
-    if(confirmPassword.length < 6){
+    if (confirmPassword.length < 6) {
         alert("Password must contain five or more character");
         return false;
     }
 
     return true;
- }
+}
 
-function Solve(e){
+function Solve(e) {
     e.preventDefault();
-//  const data = new FormData(e.target);
-const data = new FormData(e.target);
- const currentPassword = data.get('currentPassword');
- const newPassword= data.get('newPassword');
- const confirmPassword= data.get('confirmPassword');
-//  const userGender = data.get('profileGender');
- console.log(currentPassword,newPassword,confirmPassword);
+    //  const data = new FormData(e.target);
+    const data = new FormData(e.target);
+    const currentPassword = data.get('currentPassword');
+    const newPassword = data.get('newPassword');
+    const confirmPassword = data.get('confirmPassword');
+    //  const userGender = data.get('profileGender');
+    // console.log(currentPassword, newPassword, confirmPassword);
 
-  if(!validation(currentPassword,newPassword,confirmPassword)){
+    if (!validation(currentPassword, newPassword, confirmPassword)) {
 
-  }else{
- const obj = JSON.parse(localStorage.getItem('user'));
- obj.password = confirmPassword;
-//  localStorage.clear();
-//  const item = {
-//     email: userEmail,
-//     name : userName,
-//     contact : userNumber,
-//     gender : userGender,
-//     password : pass,
-//  }
-data.set('currentPassword',"");
-data.set('newPassword',"");
-data.set('confirmPassword',"");
- localStorage.setItem('user',JSON.stringify(obj));
- alert("You have successfully changed password")
+    } else {
+        // const obj = JSON.parse(localStorage.getItem('user'));
+        // obj.password = confirmPassword;
+        //  localStorage.clear();
+        //  const item = {
+        //     email: userEmail,
+        //     name : userName,
+        //     contact : userNumber,
+        //     gender : userGender,
+        //     password : pass,
+        //  }
 
- 
- 
-  }}
+        updatePassword(auth.currentUser, confirmPassword).then(() => {
+            alert("You have successfully changed the password");
+        }).catch((error) => {
+            console.log(error);
+        })
 
-  export default Solve;
+        data.set('currentPassword', "");
+        data.set('newPassword', "");
+        data.set('confirmPassword', "");
+        alert("You have successfully changed password")
+
+
+
+    }
+}
+
+export default Solve;

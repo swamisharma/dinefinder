@@ -45,8 +45,8 @@ export default function PermanentDrawerLeft(props) {
         variant="permanent"
         anchor="left"
       >
-        <Toolbar />
-        <Divider />
+        {/* <Toolbar />
+        <Divider /> */}
         <div >
           <img className='userImage' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2w35-ywQxAxsVTPs5rHEF2m0b_CBnLHJNgA&usqp=CAU"
             alt="phofile_photo" />
@@ -54,8 +54,8 @@ export default function PermanentDrawerLeft(props) {
           <h1 className='userPhoto'>{props.name}</h1>
         </div>
         <List>
-          {/* <i class="fa-light fa-key-skeleton"></i> */}
-          {[{ profile: 'Profile', font: <i class="fa-solid fa-user"></i>, route: "/profile" },
+          {/* <i className="fa-light fa-key-skeleton"></i> */}
+          {[{ profile: 'Profile', font: <i className="fa-solid fa-user"></i>, route: "/profile" },
           { profile: 'Change Password', font: <MdOutlinePassword />, route: "/profile/password" }
             , { profile: 'Booking History', font: <AiOutlineHistory />, route: "/profile/booking" }
             , { profile: 'Logout', font: <BiLogOut />, route: "/login" }].map((text, index) => (
@@ -70,7 +70,7 @@ export default function PermanentDrawerLeft(props) {
                 }}>
                   <ListItemIcon >
                     {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
-                    {/* <i class="fa-solid fa-user"></i> */}
+                    {/* <i className="fa-solid fa-user"></i> */}
                     {text.font}
                   </ListItemIcon>
                   <ListItemText primary={text.profile} />
@@ -97,21 +97,8 @@ export default function PermanentDrawerLeft(props) {
         sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
       >
         <Toolbar />
-        <Typography paragraph>
-          {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-          Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
-          nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
-          leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
-          feugiat vivamus at augue. At augue eget arcu dictum varius duis at
-          consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
-          sapien faucibus et molestie ac. */}
+
           <Outlet></Outlet>
-        </Typography>
         {/* <Typography paragraph>
           Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
           eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
